@@ -1,0 +1,13 @@
+Pressure sensor specs:
+	Supply voltage: 	5-12 VDC
+	Output voltage: 	0.5-4.5 V
+	Range:		0-1.2Mps
+
+
+Converting Mps to bar:
+	1Mps = 10bar
+
+
+Signal output conversion:
+
+Pressure (bar) = Pressure Range (12 (bar)) * (Vout reading - Vout lower limit) / (Vout upper limit - Vout lower limit)
