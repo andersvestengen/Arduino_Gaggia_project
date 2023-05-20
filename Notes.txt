@@ -11,3 +11,14 @@ Converting Mps to bar:
 Signal output conversion:
 
 Pressure (bar) = Pressure Range (12 (bar)) * (Vout reading - Vout lower limit) / (Vout upper limit - Vout lower limit)
+
+
+Arduino sensor connections points:
+	D4 - Thermo SCK
+	D5 - Thermo CS
+	D6 - Thermo SO
+
+	D11 - DIM DIM
+	D12 - DIM Z-C
+
+	A0 - OCTO OUT
