@@ -18,7 +18,10 @@ Arduino sensor connections points:
 	D5 - Thermo CS
 	D6 - Thermo SO
 
-	D11 - DIM DIM
-	D12 - DIM Z-C
+	D11 - Dimmer DIM
+	D12 - Dimmer Z-C
 
-	A0 - OCTO OUT
+	A0 - Octocoupler OUT
+
+	
+	A1 - Pressure SIG
