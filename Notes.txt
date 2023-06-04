@@ -29,5 +29,9 @@ Arduino sensor connections points:
 	D2 - Relay Control
 
 
+GOALS:
+	- Ideal espresso temperature: Marzocco recommends 93 degrees celsius
+	- Google says 7-11, but 9 bars is probably the goal here
+
 Octocoupler is actually a secondary function relating to the dimmer module. The dimmer needs additional information to accurately modulate the AC strength of the appliance it controls. The most popular way to do this is with the octocoupler since it takes the full AC wave and through the octo- (light) -coupling generates a clean low voltage 1-bit signal concurrent to the AC sine signal on the high voltage side. We can then use this information to help control the AC signal swings using the dimmer module. 
 	
