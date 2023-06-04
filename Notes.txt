@@ -34,4 +34,15 @@ GOALS:
 	- Google says 7-11, but 9 bars is probably the goal here
 
 Octocoupler is actually a secondary function relating to the dimmer module. The dimmer needs additional information to accurately modulate the AC strength of the appliance it controls. The most popular way to do this is with the octocoupler since it takes the full AC wave and through the octo- (light) -coupling generates a clean low voltage 1-bit signal concurrent to the AC sine signal on the high voltage side. We can then use this information to help control the AC signal swings using the dimmer module. 
+
+
+Understanding zero-cross:
+https://microcontrollerslab.com/pc817-optocoupler-pinout-working-examples-datasheet/
+'PC817 Examples'
+
+"The basic features of octocouplers here is to give the changes in frequency pulse." which seems to indicate the 1-bit pulse triggers every change in the AC signal, which again means every high-output coming from the octocoupler is a zero-cross event?
+
+"This single pulse is used to detect the events of change in frequency which is known as zero-crosses". Which seems to support my previous assumption and should mean that I can now simply connect the octocoupler digital out to the Dimmers zero-cross digital input slot without requiring any other work.
+
+
 	
