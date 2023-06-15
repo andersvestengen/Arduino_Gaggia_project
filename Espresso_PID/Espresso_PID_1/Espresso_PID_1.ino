@@ -33,7 +33,7 @@ PID PressurePID(&input, &output, &setpoint, 2, 5, 1, DIRECT);
 double Tinput, Toutput, Tsetpoint;
 PID TemperaturePID(&Tinput, &Toutput, &Tsetpoint, 2, 5, 1, DIRECT);
 int WindowSize = 3000; // 3s wait between relay on/off
-unsigned long windowSTartTime;
+unsigned long windowStartTime;
 
 // SSR Relay setup
 #define RelayPin 2
@@ -55,9 +55,9 @@ void setup() {
   PressurePID.SetOutputLimits(0, 100);
 
   // Define and Initalize Temperature PID values
+  windowStartTime = millis();
   Tsetpoint = 93;
   pinMode(RelayPin, OUTPUT);
-  windowStartTime = millis();
   TemperaturePID.SetOutputLimits(0, WindowSize);
   TemperaturePID.SetMode(AUTOMATIC);
 
@@ -92,23 +92,23 @@ void loop() {
   else digitalWrite(RelayPin, LOW);
   
   // print outputs
-  Serial.print("C = ");
-  Serial.println(thermocouple.readCelsius());
-
-  Serial.print("P = ");
+  Serial.print(thermocouple.readCelsius());
+  Serial.print(",");
   Serial.println(CurrentPressure);
+
 }
 
 double PressureCalc(int Vsig){
 
   double pressure;
-  int Vmin = 0.5;
-  int Vmax = 4; // this is Vmax - Vmin 
-  int MaxBar = 12;
-  int ADC_int = 1024;
 
 
-  pressure = MaxBar * (Vsig*ADC_int - Vmin) / Vmax;
+  pressure = 12 * (Vsig - 102) / 818;
+
+  if (pressure < 0)
+  {
+    pressure = 0;
+  };
 
   return pressure;
 
